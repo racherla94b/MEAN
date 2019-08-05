@@ -1,0 +1,9 @@
+<div class="middle mt-4" style="text-align:center">
+    <h3><i>Enter your text: </i></h3>
+    <input type="text" name="searchString" #search (keydown.enter) = "onSearch(search.value)" placeholder="Search" class = "form-control search-box">
+    <button type="button" (click) = "onSearch(search.value)" class = "btn btn-info" style = "margin: 5px; width: 250px;">Search</button>
+</div>
+
+<mat-divider></mat-divider>
+
+<router-outlet></router-outlet>

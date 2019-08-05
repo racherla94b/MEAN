@@ -1,0 +1,8 @@
+<div class="container mt-4" *ngIf = "mode !== 'form'">
+  <h3>Please select one</h3>
+  <button class = "btn btn-success btn-lg mb-3" (click) = "selectMode('upload')">Upload Files</button>
+  <mat-divider></mat-divider>
+  <button class = "btn btn-primary btn-lg mt-3" (click) = "selectMode('form')">Add Data Manually</button>
+</div>
+
+<router-outlet></router-outlet>

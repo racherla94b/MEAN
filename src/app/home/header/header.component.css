@@ -1,0 +1,7 @@
+.navbar-light .navbar-nav .nav-link  {
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]) {
+  cursor: pointer;
+}

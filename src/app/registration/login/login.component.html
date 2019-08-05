@@ -1,0 +1,31 @@
+<div class="container">
+
+  <h2>
+    Please Enter your Login credentials here
+  </h2>
+
+  <mat-card>
+    <mat-spinner *ngIf = "isLoading"></mat-spinner>
+    <form (ngSubmit) = "onLogin(lo)" #lo = "ngForm" *ngIf = "!isLoading">
+      <mat-form-field>
+        <input matInput type="email" name = "email" placeholder="Enter your Email" minlength = "3" ngModel required email #email = "ngModel">
+        <mat-error *ngIf = "email.invalid">Please enter a valid Email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="password" name = "password" placeholder="Enter your Password" minlength = 3 ngModel required #password = "ngModel">
+        <mat-error *ngIf = "password.invalid">Please enter a valid Password</mat-error>
+      </mat-form-field>
+
+      <input type="submit" value = "Log In" class = "btn btn-block btn-primary" [disabled] = "!lo.valid">
+    </form>
+  </mat-card>
+
+  <div id="links">
+    <a routerLink = "/signup" class = "btn btn-link">Sign up for a new user</a>
+    <a routerLink = "/signup" class = "btn btn-link disabled">Forgot your Password</a>
+  </div>
+
+  <mat-divider class="mt-4"></mat-divider>
+
+</div>

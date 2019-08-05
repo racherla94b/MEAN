@@ -1,0 +1,133 @@
+<div class="container mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <mat-card class="denote p-0">
+          <div class="head-card-1">
+              <mat-card-title class="px-3  pt-2">
+                <small>WORDS</small>
+              </mat-card-title>
+            <mat-card-content class="px-3 pb-1 num-data">
+              {{ wordCount }}
+            </mat-card-content>
+          </div>
+          <mat-card-content class="px-4 pt-1 content-height">
+            <h5>WORDS</h5>
+            <p>Number of words stored in our Repository</p>
+          </mat-card-content>
+          <mat-card-actions class="px-3 pt-1 pb-2">
+            <button class = "btn btn-outline-light">ENTER</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div class="col">
+        <mat-card class="denote p-0">
+          <div class="head-card-2">
+            <!-- <mat-card-header> -->
+              <mat-card-title class="px-3  pt-2">
+                <small>User Words</small>
+              </mat-card-title>
+            <!-- </mat-card-header> -->
+            <mat-card-content class="px-3 pb-1 num-data">
+              {{ userWords }}
+            </mat-card-content>
+          </div>
+          <mat-card-content class="px-4 pt-1 content-height">
+            <h5><span *ngIf = "!username">User</span>{{ username }} Words</h5>
+            <p>Words defined by the user {{ username }}</p>
+          </mat-card-content>
+          <mat-card-actions class="px-3 pt-1 pb-2">
+            <button class = "btn btn-outline-light">ENTER</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div class="col">
+        <mat-card class="denote p-0">
+          <div class="head-card-3">
+            <!-- <mat-card-header> -->
+              <mat-card-title class="px-3 pt-2">
+                <small>Files Uploaded</small>
+              </mat-card-title>
+            <!-- </mat-card-header> -->
+            <mat-card-content class="px-3 pb-1 num-data">
+              {{ userFiles }}
+            </mat-card-content>
+          </div>
+          <mat-card-content class="px-4 pt-1 content-height">
+            <h5>User Uploads</h5>
+            <p>Number of Files uploaded by the user {{ username }}</p>
+          </mat-card-content>
+          <mat-card-actions class="px-3 pt-1 pb-2">
+            <button class = "btn btn-outline-light">ENTER</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div class="col">
+        <mat-card class="denote p-0">
+          <div class="head-card-4">
+            <!-- <mat-card-header> -->
+              <mat-card-title class="px-3  pt-2">
+                <small>FORMATS</small>
+              </mat-card-title>
+            <!-- </mat-card-header> -->
+            <mat-card-content class="px-3 pb-1 num-data">
+              4
+            </mat-card-content>
+          </div>
+          <mat-card-content class="px-4 pt-1 content-height">
+            <h5>Formats</h5>
+            <p>Number of Formats supported by our application</p>
+          </mat-card-content>
+          <mat-card-actions class="px-3 pt-1 pb-2">
+            <button  class = "btn btn-outline-light" disabled>ENTER</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col">
+        <mat-card>
+          <mat-card-title>
+            <small>Recently added</small>
+          </mat-card-title>
+          <mat-card-content>
+            <mat-list>
+              <div *ngFor = "let word of words">
+                <mat-list-item class = "my-2">
+                  <mat-icon mat-list-icon class="green-icon"><i class="fa fa-check"></i></mat-icon>
+                  <h3 mat-line>{{ word.Title }}</h3>
+                  <p mat-line class = "pl-3">{{ word.username }}</p>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+              </div>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col">
+        <mat-card>
+          <mat-card-title>
+            <small>Most Searched</small>
+          </mat-card-title>
+          <mat-card-content>
+            <mat-list>
+              <div *ngFor = "let word of searches">
+                <mat-list-item class = "my-2">
+                  <h3 mat-line>{{ word.Title }}</h3>
+                  <p mat-line class = "pl-3">{{ word.username }}</p>
+                  <mat-icon mat-list-icon class="green-icon"><i class="fa fa-check"></i></mat-icon>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+              </div>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

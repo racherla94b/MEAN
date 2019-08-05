@@ -1,0 +1,21 @@
+<div [@zoomin] class="picture"></div>
+<div id="landing-header">
+ 		<h1 [@list2] class="shado" >Welcome to Health-care!</h1>
+    <div [@bounceup] class = "btn-group">
+		   <a routerLink = "/home" class="btn btn-lg btn-primary">
+         <i class="fa fa-home" aria-hidden="true"></i>
+       </a>
+       <a *ngIf = "!loggedIn else user" routerLink = "/login" class="btn btn-lg btn-primary">Login</a>
+       <ng-template #user>
+         <div class="btn-group">
+             <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
+               <span class="glyphicon glyphicon-user"></span>
+               {{ userName }}
+             </button>
+             <ul class="dropdown-menu " role="menu">
+               <li><a (click) = "onLogout()">Logout</a></li>
+             </ul>
+           </div>
+       </ng-template>
+    </div>
+</div>

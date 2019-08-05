@@ -1,0 +1,15 @@
+<h3 mat-dialog-title>Please select a Download Format </h3>
+
+<div mat-dialog-content>
+  <mat-radio-group [(ngModel)] = data.dataFormat>
+    <div class="form-check-inline" *ngFor = "let format of formats">
+      <mat-radio-button class="form-check-input" [value] = 'format'>{{ format | uppercase }}</mat-radio-button>
+    </div>
+  </mat-radio-group>
+</div>
+
+<div mat-dialog-actions class = "btn-group">
+  <button mat-button (click) = "onNoClick()" class = "btn btn-secondary">Not Interested</button>
+  <button mat-button [mat-dialog-close]="data.dataFormat" cdkFocusInitial class = "btn btn-success">
+    Download</button>
+</div>

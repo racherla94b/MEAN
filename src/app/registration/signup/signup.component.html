@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Sign up Here!</h2>
+
+  <mat-card>
+    <mat-spinner *ngIf = "isLoading"></mat-spinner>
+    <form (submit) = "onSignup(sig)" #sig = "ngForm" *ngIf = "!isLoading">
+      <mat-form-field>
+        <input matInput type="text" name = "fname" placeholder="Enter First Name" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="text" name = "lname" placeholder="Enter Last Name" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="email" name = "email" placeholder="Enter Email" ngModel required email minlength="3" #email = "ngModel">
+        <mat-error *ngIf = "!email.valid && email.touched">Please enter a valid Email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="password" name="password" placeholder="Enter your Password" ngModel required minlength="3" #pword="ngModel">
+        <mat-error *ngIf = "!pword.valid && pword.touched">Please enter a valid Password</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Select a Role" name="role" ngModel required>
+          <mat-option *ngFor="let role of roles" [value]="role.value">
+            {{role.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+        <input type="submit" class="btn btn-primary" value="Sign Up" [disabled] = "!sig.valid">
+    </form>
+  </mat-card>
+
+  <a routerLink = "/login" class = "btn btn-link">Already signed up... Click here to Login</a>
+</div>

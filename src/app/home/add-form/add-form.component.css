@@ -1,0 +1,27 @@
+.title-box {
+  margin: auto;
+  width: 85%;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.adder {
+  color: #33cc33;
+}
+
+.remover {
+  color: #ff1a1a;
+}
+
+.btn.btn-primary.btn-block {
+  width: 50%;
+  margin: auto;
+  border-radius: 25px;
+  outline: none;
+}
+
+button:focus {
+  outline: 0 !important;
+}

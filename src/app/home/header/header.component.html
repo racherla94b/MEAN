@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light rounded" style="background-color: #e3f2fd;">
+  <div class="container">
+    <a class="navbar-brand" href="#">Health Care</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions] = "{exact: true}">
+          <a class="nav-link" routerLink="/home">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/home/add-data" (click) = "onData()">Upload Data</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/home/get-data">Download Data</a>
+      </ul>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #search>
+        <button class="btn btn-outline-success my-2 my-sm-0" (click) = "onSearch(search.value)">Search</button>
+      </form>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown" *ngIf = "isLoggedIn() else login">
+          <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+            {{ username }}
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" (click) = "onLogout()"><i class="fa fa-user-circle"></i> Logout</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <ng-template #login>
+            <a class="nav-link" routerLink = "/login">Login</a>
+          </ng-template>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<!-- <li class="nav-item">
+  <a class = "nav-link" (click) = "onLogout()" *ngIf = "isLoggedIn() else login">
+    <i class="fa fa-user-circle"></i> Logout
+  </a>
+</li>
+<li class="nav-item">
+  <ng-template #login>
+    <a class="nav-link" routerLink = "/login">
+      Login
+    </a>
+  </ng-template>
+</li> -->

@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <mat-spinner *ngIf = "isLoading"></mat-spinner>
+  <mat-accordion multi = true *ngIf = "!isLoading && !anyDisplay" class="headings-align">
+    <mat-expansion-panel *ngFor = "let sdata of searchData" [expanded] = "single">
+
+      <mat-expansion-panel-header class="pl-5">
+        <mat-panel-title>{{ sdata.Title }}</mat-panel-title>
+        <mat-panel-description>{{ sdata.username }}</mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <table class="table table-borderless table-hover">
+        <tbody *ngFor = "let standard of corestandards">
+          <tr *ngIf = "sdata[standard]" class="row">
+            <td class="col-sm-3"> {{ standard | titlecase }} </td>
+            <td class="col-sm-9">{{ sdata[standard] }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <mat-action-row>
+        <small> Added a few months ago. </small>
+        <span *ngIf = "loggedUserId === sdata.userId">
+          <button (click) = "onEdit(sdata._id)" class = "btn btn-info btn-sm mx-2">Edit <i class="fa fa-edit"></i></button>
+          <button (click) = "onDelete(sdata._id)" class = "btn btn-danger btn-sm mx-2">Delete <i class="fa fa-trash"></i></button>
+        </span>
+        <button (click) = "openDialog(sdata._id, sdata.Title)" class = "btn btn-primry btn-sm mx-2">Download <i class="fa fa-download"></i></button>
+      </mat-action-row>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <h3 *ngIf = "!isLoading && anyDisplay">No Words to display</h3>
+
+  <mat-paginator *ngIf = "mode === 'multiple' && totalWords > 0 && !anyDisplay"
+                 [length] = "totalWords" [pageSize]="wordsPerPage"
+                 [pageSizeOptions] = "pageSizeOptions" (page) = "onChangedPage($event)" class = "ml-3 mt-5">
+  </mat-paginator>
+</div>

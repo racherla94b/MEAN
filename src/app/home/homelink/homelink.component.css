@@ -1,0 +1,50 @@
+.denote {
+  max-width: 250px;
+  /* height: 286px; */
+}
+
+.head-card-1 {
+  background-color: #2196F3;
+  color: #fff;
+}
+.head-card-2 {
+  background-color: #7C4DFF;
+  color: #fff;
+}
+.head-card-3 {
+  background-color: #AD1457;
+  color: #fff;
+}
+.head-card-4 {
+  background-color: #00BCD4;
+  color: #fff;
+}
+
+.num-data {
+  font-size: 40pt;
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-title {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.btn.btn-outline-light {
+  color: #6666ff;
+  font-size: 11pt;
+}
+
+.green-icon {
+  color: #32CD32;
+}
+
+.content-height {
+  height: 66px;
+}

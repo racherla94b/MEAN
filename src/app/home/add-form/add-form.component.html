@@ -1,0 +1,67 @@
+<mat-spinner *ngIf = "isLoading"></mat-spinner>
+
+<div class="container mt-3" *ngIf = "!isLoading">
+  <h3>Enter the Word and its Dublin Standards here</h3>
+
+  <form (ngSubmit) = "onSubmit()" #f = "ngForm">
+    <div class="form-group">
+      <label for="title">Title for the Collection is:</label>
+      <input type="text" class="form-control title-box" name = "Title" [ngModel] = "formData?.Title">
+    </div>
+    <mat-divider class = "mb-4"></mat-divider>
+
+    <div *ngFor = "let n of nos">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="form-group">
+
+            <div class="row">
+              <div class="col-md-8 col-sm-6">
+                <h5><label [for]="corestandards[n]">{{ corestandards[n] }}</label></h5>
+              </div>
+
+              <div class="col-md-4 col-sm-6">
+                <button class="btn btn-link adder" type = "button" (click) = "addInput(n)" *ngIf = "!item[n]">
+                  <i class="fa fa-plus-circle"></i>
+                </button>
+                <button class="btn btn-link remover" type = "button" (click) = "removeInput(n)" *ngIf = "item[n]">
+                  <i class="fa fa-minus-circle"></i>
+                </button>
+              </div>
+            </div>
+
+            <div *ngIf = "item[n]">
+              <input type="text" [name] = "corestandards[n]" [placeholder]="corestandards[n]" class = "form-control" required [(ngModel)] = "formData[corestandards[n]]">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+          <div class="form-group">
+
+            <div class="row">
+              <div class="col-md-8 col-sm-6">
+                <h5><label [for]="corestandards[n+1]">{{ corestandards[n+1] }}</label></h5>
+              </div>
+
+              <div class="col-md-4 col-sm-6">
+                <button class="btn btn-link adder" type = "button" (click) = "addInput(n+1)" *ngIf = "!item[n+1]">
+                  <i class="fa fa-plus-circle"></i>
+                </button>
+                <button class="btn btn-link remover" type = "button" (click) = "removeInput(n+1)" *ngIf = "item[n+1]">
+                  <i class="fa fa-minus-circle"></i>
+                </button>
+              </div>
+            </div>
+
+            <div *ngIf = "item[n+1]">
+              <input type="text" [name] = "corestandards[n+1]" [placeholder]="corestandards[n+1]" class = "form-control" required [(ngModel)] = "formData[corestandards[n+1]]">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <input type="submit" name="submit" value="Submit Meta Data" class = "btn btn-primary btn-block mt-3">
+  </form>
+</div>

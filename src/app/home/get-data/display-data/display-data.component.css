@@ -1,0 +1,16 @@
+mat-spinner {
+  margin: auto;
+}
+
+mat-action-row small {
+}
+
+.headings-align .mat-expansion-panel-header-title,
+.headings-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headings-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
