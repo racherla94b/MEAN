@@ -34,7 +34,7 @@
     "js2xmlparser": "^3.0.0",
     "json2csv": "^4.3.1",
     "jsonwebtoken": "^8.3.0",
-    "mongoose": "^5.3.9",
+    "mongoose": "^5.7.5",
     "mongoose-unique-validator": "^2.0.2",
     "multer": "^1.4.1",
     "path": "^0.12.7",
